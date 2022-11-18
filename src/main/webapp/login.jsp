@@ -39,7 +39,6 @@
 		</div>
 	</nav>
 	
-	<!-- 로그인 양식  -->
 	<div class="container">
 		<div class="col-lg-4"></div>
 			<div class="col-lg-4">

@@ -16,18 +16,18 @@
 
 	<%
 		String userID = null;
-		if (session.getAttribute("userID") != null){
+		if (session.getAttribute("userID") != null) {
 			userID = (String)session.getAttribute("userID");
 		}
 		
-		if (userID == null){
+		if (userID == null) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인이 필요합니다')");
 			script.println("location.href='login.jsp'");
 			script.println("</script>");
 		} else {
-			if (bbs.getBbsTitle() == null || bbs.getBbsContent() == null){
+			if (bbs.getBbsTitle() == null || bbs.getBbsContent() == null) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('입력되지 않은 항목이 있습니다')");
@@ -37,7 +37,7 @@
 			BbsDAO bbsDAO = new BbsDAO();
 			int result = bbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent());
 			
-			if (result == -1){
+			if (result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('글이 등록되지 않았습니다')");

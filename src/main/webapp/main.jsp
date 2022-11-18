@@ -15,7 +15,7 @@
 
 	<%
 		String userID = null;
-		if (session.getAttribute("userID") != null){
+		if (session.getAttribute("userID") != null) {
 			userID = (String)session.getAttribute("userID");
 		}
 	%>
@@ -37,7 +37,7 @@
 			</ul>
 			
 			<%
-				if (userID == null){
+				if (userID == null) {
 			%>
 			
 			<ul class="nav navbar-nav navbar-right">

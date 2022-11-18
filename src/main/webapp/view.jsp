@@ -26,7 +26,7 @@
 			bbsID = Integer.parseInt(request.getParameter("bbsID"));	
 		}
 		
-		if(bbsID == 0){
+		if(bbsID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다')");
@@ -119,7 +119,7 @@
 			<a href="bbs.jsp" class="btn btn-primary">목록</a>
 			
 			<%
-				if(userID != null && userID.equals(bbs.getUserID())){
+				if (userID != null && userID.equals(bbs.getUserID())) {
 			%>
 			
 				<a href="update.jsp?bbsID=<%=bbsID %>" class="btn btn-primary">수정</a>

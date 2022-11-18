@@ -23,7 +23,7 @@
 		}
 		
 		int pageNumber = 1;
-		if (request.getParameter("pageNumber") != null){
+		if (request.getParameter("pageNumber") != null) {
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
 	%>
@@ -55,7 +55,7 @@
 						<li><a href="login.jsp">로그인</a></li>
 						<li><a href="join.jsp">회원가입</a></li>
 					</ul>
-				</li>	
+				</li>
 			</ul>
 			
 			<%
@@ -105,9 +105,8 @@
 					<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>">
 					<%= list.get(i).getBbsTitle() %></a></td>
 					<td><%= list.get(i).getUserID() %></td>
-					<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + 
-					"시 " + list.get(i).getBbsDate().substring(14, 16) + "분 " %></td>
-				</tr>	
+					<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시 " + list.get(i).getBbsDate().substring(14, 16) + "분 " %></td>
+				</tr>
 				
 				<%
 					}
@@ -117,12 +116,15 @@
 			</table>
 			
 			<%
-				if(pageNumber != 1){
+				if (pageNumber != 1) {
 			%>
+			
 				<a href="bbs.jsp?pageNumber=<%=pageNumber - 1 %>" class="btn btn-success btn-arraw-left">이전</a>
+				
 			<%
-				} if(bbsDAO.nextPage(pageNumber + 1)){
+				} if (bbsDAO.nextPage(pageNumber + 1)) {
 			%>
+			
 				<a href="bbs.jsp?pageNumber=<%=pageNumber + 1 %>" class="btn btn-success btn-arraw-left">다음</a>
 				
 			<%

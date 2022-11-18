@@ -17,11 +17,11 @@
 
 	<%
 		String userID = null;
-		if (session.getAttribute("userID") != null){
+		if (session.getAttribute("userID") != null) {
 			userID = (String)session.getAttribute("userID");
 		}
 		
-		if (userID == null){
+		if (userID == null) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인이 필요합니다')");
@@ -30,11 +30,11 @@
 		}
 		
 		int bbsID = 0;
-		if (request.getParameter("bbsID") != null){
+		if (request.getParameter("bbsID") != null) {
 			bbsID = Integer.parseInt(request.getParameter("bbsID"));
 		}
 		
-		if (bbsID == 0){
+		if (bbsID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다')");
@@ -43,7 +43,7 @@
 		}
 		
 		Bbs Bbs = new BbsDAO().getBbs(bbsID);
-		if (!userID.equals(Bbs.getUserID())){
+		if (!userID.equals(Bbs.getUserID())) {
 			PrintWriter script = response.getWriter();
 			script.println("alert('권한이 없습니다')");
 			script.println("location.href='bbs.jsp'");
@@ -52,7 +52,7 @@
 			BbsDAO bbsDAO = new BbsDAO();
 			int result = bbsDAO.delete(bbsID);
 			
-			if (result == -1){
+			if (result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('글이 수정되지 않았습니다')");
