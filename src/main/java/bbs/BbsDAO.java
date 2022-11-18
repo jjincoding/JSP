@@ -82,7 +82,6 @@ public class BbsDAO {
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
-			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -108,7 +107,6 @@ public class BbsDAO {
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
-			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) { 

@@ -21,6 +21,15 @@ public class UserDAO {
 		}
 	}
 	
+	public void close() {
+		try {
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public int login(String userID, String userPassword) {
 		
 		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
@@ -28,7 +37,8 @@ public class UserDAO {
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userID);
-			rs = pstmt.executeQuery(); //실행 결과를 넣고,
+			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {
 				if(rs.getString(1).equals(userPassword)) {
 					return 1;
@@ -38,6 +48,8 @@ public class UserDAO {
 				return -1;
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return -2;
 	}
@@ -48,7 +60,6 @@ public class UserDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			
 			pstmt.setString(1, user.getUserID());
 			pstmt.setString(2, user.getUserPassword());
 			pstmt.setString(3, user.getUserName());
@@ -57,6 +68,8 @@ public class UserDAO {
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return -1;
 	}
